@@ -102,6 +102,14 @@ fetchDataFromServer(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${api
         </div>
     
         <p class="genre">${getGenres(genres)}</p>
+
+        <div class="title-wrapper">
+          <h3 class="title-large">Trailers and Clips</h3>
+        </div>
+    
+        <div class="slider-list">
+          <div class="slider-inner"></div>
+        </div>
     
         <p class="overview">${overview}</p>
     
@@ -123,13 +131,7 @@ fetchDataFromServer(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${api
     
       </div>
     
-      <div class="title-wrapper">
-        <h3 class="title-large">Trailers and Clips</h3>
-      </div>
-    
-      <div class="slider-list">
-        <div class="slider-inner"></div>
-      </div>
+      
     
     </div>
   `;
