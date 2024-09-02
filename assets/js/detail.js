@@ -134,7 +134,7 @@ fetchDataFromServer(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${api
     </div>
   `;
 
-  for (const { key, name } of filterVideos(videos)) {
+  /* for (const { key, name } of filterVideos(videos)) {
     const videoCard = document.createElement("div");
     videoCard.classList.add("video-card");
 
@@ -144,8 +144,27 @@ fetchDataFromServer(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${api
     `;
 
     movieDetail.querySelector(".slider-inner").appendChild(videoCard);
-  }
+  } */
 
+
+  for (const { key, name } of filterVideos(videos)) {
+  const videoCard = document.createElement("div");
+  videoCard.classList.add("video-card");
+
+  // Use the vidsrc.to URL with the video ID
+  const vidsrcUrl = `https://vidsrc.in/embed/movie/${movieId}`;/* ?autoplay=1 */
+
+  videoCard.innerHTML = `
+    <iframe width="500" height="294" src="${vidsrcUrl}" frameborder="0" allowfullscreen="1" title="${name}" class="img-cover" loading="lazy"></iframe>
+    
+  `;
+  /* <iframe src="https://vidsrc.me/" referrerpolicy="origin"></iframe> */
+
+  movieDetail.querySelector(".slider-inner").appendChild(videoCard);
+}
+  
+
+  
   pageContent.appendChild(movieDetail);
 
   fetchDataFromServer(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${api_key}&page=1`, addSuggestedMovies);
